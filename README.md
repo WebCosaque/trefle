@@ -1,2 +1,2 @@
 # trefle
-Trefle 4chan scrapper
+A tool to download all media files from a 4chan(nel).org thread.
