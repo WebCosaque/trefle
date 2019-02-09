@@ -14,15 +14,18 @@ print(custom_fig.renderText('trefle'))
 
 url = input('Thread URL: ')
 folder = input('Name of the folder (leave blank for an automated name) :')
+
 if folder == '':
     folder = str(time.time()) + "/"
 else:
     folder = folder + "/"
+
+os.makedirs(str(folder), exist_ok=True)
+print('Files will be saved in', folder)
+
 thread_source = requests.get(url)
 thread = thread_source.text
 soup = BeautifulSoup(thread,'html.parser')
-os.makedirs(str(folder), exist_ok=True)
-print('Files will be saved in', folder)
 
 for link in soup.findAll('a', {'class': 'fileThumb'}):
     imageUrl = 'https:' + link.get('href')
