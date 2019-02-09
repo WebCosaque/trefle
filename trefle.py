@@ -1,3 +1,5 @@
+# trefle 4chan files downloader.
+
 import requests
 import random
 import urllib.request
