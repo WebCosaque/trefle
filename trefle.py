@@ -3,7 +3,7 @@
 import requests
 import urllib.request
 import time, datetime, os
-from hurry.filesize import size
+from hurry.filesize import size, alternative
 from bs4 import BeautifulSoup
 from pyfiglet import Figlet
 from colorama import init
@@ -46,7 +46,7 @@ for path, dirs, files in os.walk(folder):
     for f in files:
         fp = os.path.join(path, f)
         totalSize += os.path.getsize(fp)
-print(Back.CYAN + size(totalSize), 'downloaded, files have been saved in', folder)
+print(Back.CYAN + size(totalSize, system=alternative), 'downloaded, files have been saved in', folder)
 print(Style.RESET_ALL)
 print(Fore.WHITE + Back.GREEN + 'Success !')
 print(Style.RESET_ALL)
